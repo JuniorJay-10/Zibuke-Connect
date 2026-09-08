@@ -1,0 +1,337 @@
+<!--
+  Browser-SIP user directory, mounted into /etc/freeswitch/directory/default/.
+
+  This mirrors the same <user> shape FreeSWITCH's own vanilla install uses
+  for extensions 1000-1019 (which is why those already worked with
+  MicroSIP) — it just defines a second, separate range (2000-2019) for
+  browser users connecting via SIP.js over the internal profile's
+  WebSocket listener (ws-binding :5066 / wss-binding :7443, already set in
+  freeswitch/internal.xml).
+
+  All 20 extensions share one demo password. The backend hands each
+  logged-in user one of these extensions the first time they request
+  their SIP config (see backend/src/sip/sip.service.ts) — keep the two
+  files in sync if you ever change the range or the password.
+-->
+<include>
+  <user id="2000">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2000"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2000"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2000"/>
+      <variable name="effective_caller_id_number" value="2000"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2001">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2001"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2001"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2001"/>
+      <variable name="effective_caller_id_number" value="2001"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2002">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2002"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2002"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2002"/>
+      <variable name="effective_caller_id_number" value="2002"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2003">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2003"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2003"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2003"/>
+      <variable name="effective_caller_id_number" value="2003"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2004">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2004"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2004"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2004"/>
+      <variable name="effective_caller_id_number" value="2004"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2005">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2005"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2005"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2005"/>
+      <variable name="effective_caller_id_number" value="2005"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2006">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2006"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2006"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2006"/>
+      <variable name="effective_caller_id_number" value="2006"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2007">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2007"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2007"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2007"/>
+      <variable name="effective_caller_id_number" value="2007"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2008">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2008"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2008"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2008"/>
+      <variable name="effective_caller_id_number" value="2008"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2009">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2009"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2009"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2009"/>
+      <variable name="effective_caller_id_number" value="2009"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2010">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2010"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2010"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2010"/>
+      <variable name="effective_caller_id_number" value="2010"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2011">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2011"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2011"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2011"/>
+      <variable name="effective_caller_id_number" value="2011"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2012">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2012"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2012"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2012"/>
+      <variable name="effective_caller_id_number" value="2012"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2013">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2013"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2013"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2013"/>
+      <variable name="effective_caller_id_number" value="2013"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2014">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2014"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2014"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2014"/>
+      <variable name="effective_caller_id_number" value="2014"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2015">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2015"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2015"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2015"/>
+      <variable name="effective_caller_id_number" value="2015"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2016">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2016"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2016"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2016"/>
+      <variable name="effective_caller_id_number" value="2016"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2017">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2017"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2017"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2017"/>
+      <variable name="effective_caller_id_number" value="2017"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2018">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2018"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2018"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2018"/>
+      <variable name="effective_caller_id_number" value="2018"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+  <user id="2019">
+    <params>
+      <param name="password" value="ZibukeSip2026!"/>
+      <param name="vm-password" value="2019"/>
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="2019"/>
+      <variable name="user_context" value="default"/>
+      <variable name="effective_caller_id_name" value="Zibuke User 2019"/>
+      <variable name="effective_caller_id_number" value="2019"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id_number}"/>
+      <variable name="callgroup" value="zibuke_browser"/>
+    </variables>
+  </user>
+</include>

@@ -1,0 +1,77 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - PORT=3000
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=zibuke
+      - DB_PASSWORD=zibuke_dev_password
+      - DB_NAME=zibuke
+      - JWT_SECRET=dev-only-secret-change-me
+    depends_on:
+      - postgres
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:3000
+    depends_on:
+      - backend
+
+  kamailio:
+    image: ghcr.io/kamailio/kamailio:6.1.3-bookworm
+    # SIP proxy: the front door every softphone talks to. Relays
+    # everything to FreeSWITCH, which does the real registrar/dialplan work.
+    ports:
+      - "5060:5060/udp"
+      - "5060:5060/tcp"
+    volumes:
+      - ./kamailio/kamailio.cfg:/etc/kamailio/kamailio.cfg:ro
+    depends_on:
+      - freeswitch
+
+  freeswitch:
+    image: safarov/freeswitch:latest
+    volumes:
+      - ./freeswitch/event_socket.conf.xml:/etc/freeswitch/autoload_configs/event_socket.conf.xml:ro
+      - ./freeswitch/internal.xml:/etc/freeswitch/sip_profiles/internal.xml:ro
+      # Browser (SIP.js) accounts 2000-2019 — separate from the vanilla
+      # 1000-1019 range MicroSIP already uses. See freeswitch/web-users.xml.
+      - ./freeswitch/web-users.xml:/etc/freeswitch/directory/default/web-users.xml:ro
+    # The PBX itself. Uses its default ("vanilla") config, which already
+    # has working extensions 1000-1019 that can call each other.
+    ports:
+      - "16384-16484:16384-16484/udp"   # RTP = actual audio media
+      # SIP over WebSocket, for the in-browser softphone (SIP.js). The
+      # internal profile already listens here (ws-binding in internal.xml)
+      # — this just publishes the port to the host so the frontend
+      # (running outside the Docker network) can reach it.
+      - "5066:5066/tcp"
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=zibuke
+      - POSTGRES_PASSWORD=zibuke_dev_password
+      - POSTGRES_DB=zibuke
+    volumes:
+      # Named volume (not a bind mount to a host folder) — this is how
+      # database data survives container restarts without cluttering your
+      # project folder with Postgres's internal files.
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
